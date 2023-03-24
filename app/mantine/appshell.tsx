@@ -386,17 +386,37 @@ export const AppShell = ({ children, color }: Props) => {
               <Navbar.Section mt="xs">
                 <Stack align="center">
                   <Stack spacing={0}>
-                    <Text
-                      maw={90}
-                      variant="gradient"
-                      gradient={{
-                        from: theme.colors[color ?? "blue"]![3],
-                        to: theme.colors[color ?? "blue"]![7],
-                      }}
-                      weight="bolder"
-                    >
-                      Ali Azzmzmi
-                    </Text>
+                    <Group spacing={"md"}>
+                      <Text
+                        maw={90}
+                        variant="gradient"
+                        gradient={{
+                          from: theme.colors[color ?? "blue"]![3],
+                          to: theme.colors[color ?? "blue"]![7],
+                        }}
+                        weight="bolder"
+                      >
+                        Ali Azzmzmi
+                      </Text>
+                      <IconLink
+                        size="xs"
+                        to="https://github.com/azzmi-my/personal"
+                        target="_blank"
+                      >
+                        <ThemeIcon
+                          size="xs"
+                          radius="lg"
+                          variant="outline"
+                          color="gray"
+                        >
+                          <IconBrandGithub
+                            stroke="none"
+                            fill="currentColor"
+                            size={16}
+                          />
+                        </ThemeIcon>
+                      </IconLink>
+                    </Group>
                     <Text size="xs">Full-Stack Web Developer</Text>
                   </Stack>
                   <Box
