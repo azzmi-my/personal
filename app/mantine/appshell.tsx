@@ -152,7 +152,7 @@ export const AppShell = ({ children, color }: Props) => {
                 to: theme.colorScheme === "dark" ? "gray.9" : "gray.0",
               }}
             >
-              aZmmi
+              aZzmi
             </Text>
             <Box
               bg={
