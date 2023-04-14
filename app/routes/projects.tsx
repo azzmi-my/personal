@@ -87,57 +87,6 @@ export default function Projects() {
               overflow: "hidden",
             }}
           >
-            <Image h={390} src="/enab-phone.png" />
-          </Box>
-          <Text weight="bolder">🧮 Enab.run</Text>
-          <Text opacity={0.5} lineClamp={2}>
-            An accounting system. (work in progress)
-          </Text>
-          <Anchor
-            size="xs"
-            pos="absolute"
-            sx={{
-              left: 8,
-              bottom: 8,
-            }}
-            href="https://www.enab.run/"
-            target="_blank"
-          >
-            <Group>
-              <ThemeIcon
-                size="xs"
-                color="gray"
-                variant="light"
-                bg="transparent"
-              >
-                <IconExternalLink />
-              </ThemeIcon>
-              <Text>Visit</Text>
-            </Group>
-          </Anchor>
-        </Stack>
-        <Stack
-          maw={300}
-          miw={300}
-          mah={550}
-          mih={550}
-          pos="relative"
-          p="xs"
-          sx={(theme) => ({
-            borderRadius: theme.radius.sm,
-            borderStyle: "solid",
-            borderWidth: 1,
-            borderColor:
-              theme.colorScheme === "dark"
-                ? theme.colors.gray[6]
-                : theme.colors.gray[3],
-          })}
-        >
-          <Box
-            sx={{
-              overflow: "hidden",
-            }}
-          >
             <Image
               sx={{
                 objectFit: "cover",
