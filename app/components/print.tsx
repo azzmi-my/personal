@@ -46,6 +46,7 @@ import { useHotkeys } from "@mantine/hooks";
 import { Touric } from "./touric/touric";
 import { useTour } from "./touric/tour";
 import { IconLink } from "~/remix";
+import { wd } from "~/utils/data";
 
 // 11.69
 const LABEL_HEIGHT = 11.685,
@@ -70,6 +71,7 @@ interface PrintProps extends Omit<CardProps, "children"> {
 const Print = forwardRef<HTMLDivElement, PrintProps>(
   ({ color = "orange", ...rest }, ref) => {
     const theme = useMantineTheme();
+    const data = wd();
     return (
       <Card
         radius={0}
@@ -91,7 +93,7 @@ const Print = forwardRef<HTMLDivElement, PrintProps>(
       >
         <Stack w="100%" h="100%">
           <Group spacing="xl">
-            <Box pt={100}>
+            <Box pt={25}>
               <Box
                 maw={200}
                 w={200}
@@ -197,28 +199,74 @@ const Print = forwardRef<HTMLDivElement, PrintProps>(
                   src={`/favicons/android-chrome-192x192.png`}
                   alt="Logo"
                 />
+                <Text size="xs" align="center">
+                  Scan this QR Code to visit{" "}
+                  <Anchor
+                    color={color}
+                    href={`https://${domain}`}
+                    target="_blank"
+                  >
+                    {domain}
+                  </Anchor>
+                </Text>
               </Box>
             </Stack>
           </Group>
-          <Stack align="center" my="auto">
-            <Group>
-              <Icon icon={"7"} />
-              <Text>years in Product Development and Management</Text>
-            </Group>
-            <Group>
-              <Icon icon={"5"} />
-              <Text>years in Front End Development</Text>
-            </Group>
-            <Group>
-              <Icon icon={"3"} />
-              <Text>years in Full Stack Development</Text>
-            </Group>
-            <Group>
-              <Icon icon={"2"} />
-              <Text>years in DevOps</Text>
+          <Stack align="center">
+            {Object.entries(data.experience || {}).map(
+              ([key, [years, isMore]]) => (
+                <Group key={key}>
+                  <Icon icon={years.toString()} />
+                  <Text>years in {key}</Text>
+                </Group>
+              )
+            )}
+          </Stack>
+          <Stack align="start" spacing={1}>
+            <Text color={color} weight="bolder" size="xl">
+              Projects
+            </Text>
+            {data.projects.map((project) => (
+              <Group key={project.title}>
+                <Text>
+                  {project.icon} {project.title}
+                  {":"}
+                </Text>
+                <Text>{project.url}</Text>
+              </Group>
+            ))}
+          </Stack>
+          <Stack align="start" spacing={1}>
+            <Text color={color} weight="bolder" size="xl">
+              Repositories
+            </Text>
+            {data.repositories.map((repo) => (
+              <Group key={repo.title}>
+                <Text>
+                  {repo.icon} {repo.title}
+                  {":"}
+                </Text>
+                <Text>{repo.url}</Text>
+              </Group>
+            ))}
+          </Stack>
+          <Stack align="start" spacing={1}>
+            <Text color={color} weight="bolder" size="xl">
+              Techs
+            </Text>
+            <Group spacing={3}>
+              {data.techs(true).map((tech, i) => (
+                <Group key={i} noWrap w="full">
+                  <Text>
+                    {tech.alt}
+                    {i === data.techs(true).length - 1 ? "" : "|"}
+                  </Text>
+                </Group>
+              ))}
             </Group>
           </Stack>
-          <Stack>
+
+          <Stack mt={25}>
             <Group spacing="xs">
               <IconLink
                 to="tel:+60137951707"

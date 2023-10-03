@@ -8,171 +8,71 @@ import {
   Text,
   ThemeIcon,
 } from "@mantine/core";
-import { IconBrandGithub, IconExternalLink } from "@tabler/icons-react";
+import { IconExternalLink } from "@tabler/icons-react";
+import { wd } from "~/utils/data";
 
 export default function Projects() {
+  const data = wd();
+
   return (
     <Container size="sm">
       <Group spacing="xl" pb="xl" position="center">
-        <Stack
-          maw={300}
-          miw={300}
-          mah={550}
-          mih={550}
-          pos="relative"
-          p="xs"
-          sx={(theme) => ({
-            borderRadius: theme.radius.sm,
-            borderStyle: "solid",
-            borderWidth: 1,
-            borderColor:
-              theme.colorScheme === "dark"
-                ? theme.colors.gray[6]
-                : theme.colors.gray[3],
-          })}
-        >
-          <Box
-            sx={{
-              overflow: "hidden",
-            }}
+        {data.projects.map((project) => (
+          <Stack
+            key={project.title}
+            maw={300}
+            miw={300}
+            mah={550}
+            mih={550}
+            pos="relative"
+            p="xs"
+            sx={(theme) => ({
+              borderRadius: theme.radius.sm,
+              borderStyle: "solid",
+              borderWidth: 1,
+              borderColor:
+                theme.colorScheme === "dark"
+                  ? theme.colors.gray[6]
+                  : theme.colors.gray[3],
+            })}
           >
-            <Image h={390} src="/noras-phone.png" />
-          </Box>
-          <Text weight="bolder">🦅 Nora's Agent Sales</Text>
-          <Text opacity={0.5} lineClamp={2}>
-            An agents` sales platform for Nora's Products
-          </Text>
-          <Anchor
-            size="xs"
-            pos="absolute"
-            sx={{
-              left: 8,
-              bottom: 8,
-            }}
-            href="https://www.noras.ltd/"
-            target="_blank"
-          >
-            <Group>
-              <ThemeIcon
-                size="xs"
-                color="gray"
-                variant="light"
-                bg="transparent"
-              >
-                <IconExternalLink />
-              </ThemeIcon>
-              <Text>Visit</Text>
-            </Group>
-          </Anchor>
-        </Stack>
-        <Stack
-          maw={300}
-          miw={300}
-          mah={550}
-          mih={550}
-          pos="relative"
-          p="xs"
-          sx={(theme) => ({
-            borderRadius: theme.radius.sm,
-            borderStyle: "solid",
-            borderWidth: 1,
-            borderColor:
-              theme.colorScheme === "dark"
-                ? theme.colors.gray[6]
-                : theme.colors.gray[3],
-          })}
-        >
-          <Box
-            sx={{
-              overflow: "hidden",
-            }}
-          >
-            <Image
+            <Box
               sx={{
-                objectFit: "cover",
+                overflow: "hidden",
               }}
-              h={390}
-              src="/sewa-phone.png"
-            />
-          </Box>
-          <Text weight="bolder">🚘 mySewa</Text>
-          <Text opacity={0.5} lineClamp={2}>
-            A Car rental agents management platform.
-          </Text>
-          <Anchor
-            size="xs"
-            pos="absolute"
-            sx={{
-              left: 8,
-              bottom: 8,
-            }}
-            href="https://mysewa.net/"
-            target="_blank"
-          >
-            <Group>
-              <ThemeIcon
-                size="xs"
-                color="gray"
-                variant="light"
-                bg="transparent"
-              >
-                <IconExternalLink />
-              </ThemeIcon>
-              <Text>Visit</Text>
-            </Group>
-          </Anchor>
-        </Stack>
-        <Stack
-          maw={300}
-          miw={300}
-          mah={550}
-          mih={550}
-          pos="relative"
-          p="xs"
-          sx={(theme) => ({
-            borderRadius: theme.radius.sm,
-            borderStyle: "solid",
-            borderWidth: 1,
-            borderColor:
-              theme.colorScheme === "dark"
-                ? theme.colors.gray[6]
-                : theme.colors.gray[3],
-          })}
-        >
-          <Box
-            sx={{
-              overflow: "hidden",
-            }}
-          >
-            <Image h={390} src="/sales-phone.png" />
-          </Box>
-          <Text weight="bolder">📲 Sales Bane</Text>
-          <Text opacity={0.5} lineClamp={2}>
-            International Sales Management System (In development)
-          </Text>
-          <Anchor
-            size="xs"
-            pos="absolute"
-            sx={{
-              left: 8,
-              bottom: 8,
-            }}
-            href="https://salesbane.app/"
-            target="_blank"
-          >
-            <Group>
-              <ThemeIcon
-                size="xs"
-                color="gray"
-                variant="light"
-                bg="transparent"
-              >
-                <IconExternalLink />
-              </ThemeIcon>
-              <Text>Visit</Text>
-            </Group>
-          </Anchor>
-        </Stack>
+            >
+              <Image h={390} src={project.image} />
+            </Box>
+            <Text weight="bolder">
+              {project.icon} {project.title}
+            </Text>
+            <Text opacity={0.5} lineClamp={2}>
+              {project.description}
+            </Text>
+            <Anchor
+              size="xs"
+              pos="absolute"
+              sx={{
+                left: 8,
+                bottom: 8,
+              }}
+              href={project.url}
+              target="_blank"
+            >
+              <Group>
+                <ThemeIcon
+                  size="xs"
+                  color="gray"
+                  variant="light"
+                  bg="transparent"
+                >
+                  <IconExternalLink />
+                </ThemeIcon>
+                <Text>Visit</Text>
+              </Group>
+            </Anchor>
+          </Stack>
+        ))}{" "}
       </Group>
     </Container>
   );
