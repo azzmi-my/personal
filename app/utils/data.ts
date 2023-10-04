@@ -156,35 +156,40 @@ export const wd = () => {
             title: 'Nora\'s Agent Sales',
             description: 'An agents` sales platform for Nora\'s Products',
             url: 'https://www.noras.ltd/',
-            image: '/noras-phone.png'
+            png: '/noras-phone.png',
+            avif: '/noras.avifs'
         },
         {
             icon: '🚘',
             title: 'mySewa',
             description: 'A Car rental agents management platform.',
             url: 'https://mysewa.net/',
-            image: '/sewa-phone.png'
+            png: '/sewa-phone.png',
+            avif: '/mysewa.avifs'
         },
         {
             icon: '📲',
             title: 'Sales Bane',
             description: 'International Sales Management System (In development)',
             url: 'https://website-2e2a.fly.dev/',
-            image: '/sales-phone.png'
+            png: '/sales-phone.png',
+            avif: '/salesbane.avifs'
         },
         {
             icon: '🛒',
             title: 'iShop',
             description: 'A demo of a SAAS application, of an E-commerce storefront web app that boosts customer conversion using AI-powered personalization and dynamic pricing.',
             url: 'https://ishop.run/',
-            image: '/ishop-front.png'
+            png: '/ishop-front.png',
+            avif: '/ishop.avifs'
         },
         {
             icon: '🔰',
             title: 'Aureus.run',
             description: 'Almost ERP (In progress)',
             url: 'https://aureus.run/',
-            image: '/aureus-nav.png'
+            png: '/aureus-nav.png',
+            avif: '/aureus.avifs'
         }
     ]
 

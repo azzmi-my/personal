@@ -39,9 +39,29 @@ export default function Projects() {
             <Box
               sx={{
                 overflow: "hidden",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              <Image h={390} src={project.image} />
+              {/* <Image h={390} src={project.image} /> */}
+              <picture>
+                <source srcSet={project.avif} type="image/avif" />
+                {/* <source srcSet="image.webp" type="image/webp" /> */}
+                <img
+                  // width="1280"
+                  width="300"
+                  height="390"
+                  decoding="async"
+                  style={{
+                    objectFit: "contain",
+                    objectPosition: "center",
+                  }}
+                  loading="lazy"
+                  src={project.png}
+                  alt="an avif"
+                />
+              </picture>
             </Box>
             <Text weight="bolder">
               {project.icon} {project.title}
